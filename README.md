@@ -44,3 +44,11 @@ Los planos se guardan en el almacenamiento local del navegador, no en un servido
 - `Ctrl/Cmd + Z`: deshacer; añadir `Shift` para rehacer.
 - `Supr`: eliminar la selección.
 - `Esc`: cancelar la selección.
+
+## Rama: nodos compartidos
+
+Los extremos de las líneas que coinciden en coordenadas comparten un `nodeId`. Al arrastrar un extremo se actualizan todas las líneas conectadas a ese nodo. Tras soltarlo sobre otro extremo, ambos nodos quedan vinculados. Los cruces interiores de líneas no crean nodos automáticamente.
+
+Cambiar la longitud mantiene fijo el extremo izquierdo (el superior en vertical) y mueve el nodo del otro extremo, incluidas sus conexiones. Trasladar una línea en modo Editar mueve sus dos nodos y adapta las líneas adyacentes.
+
+La relación se incluye en los JSON y en el guardado local. Los proyectos anteriores se vinculan al cargarse, sin cambiar su formato de coordenadas. Deshacer y rehacer restauran también las relaciones. Para coincidencias se comparan coordenadas redondeadas a seis decimales de centímetro, independientemente del zoom.
